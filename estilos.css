@@ -49,6 +49,7 @@ header{
 }
 
 #encriptar{
+    border: 1px solid #0A3871;
     background: #0A3871;
     border-radius: 10px;
     height: 6.5vh;
@@ -129,13 +130,13 @@ header{
 
 #mensaje2{
     color: #343A40;
-    width: 60vw;
+    width: 70vw;
     text-align: center;
-    font-size: calc(1.5em + 1vw);
+    font-size: calc(1em + 1vw);
 
 }
 
-@media (min-width: 1023px){
+@media (min-width: 1024px){
 
     header #logo{
         display: block;
@@ -156,24 +157,24 @@ header{
     }
 
     .botones{
+        margin-top: 10px;
+        margin-left: 0;
         display: inline-block;
         flex-direction: row;
-        width: 45vw;
+        width: 54vw;
     }
     
     #encriptar{
-        position: relative;
+        float: left;
         height: 8vh;
-        width: 20vw;
-        left: 2vw;
+        width: 25vw;
     }
 
     #desencriptar{
-        background-color: transparent;
-        position: relative;
+        float: right;
         height: 8vh;
-        width: 20vw;
-        left: 10vw;
+        width: 25vw;
+        background-color: transparent;
     }
 
     .salida{
@@ -214,7 +215,7 @@ header{
         width: 20vw;
         margin-top: 5vh;
         margin-left: 2.5vw;
-        cursor: pointer;
+        cursor: pointer;   
     }
 
     #mensaje1{
@@ -224,7 +225,7 @@ header{
 
     #mensaje2{
         background-color: tr;
-        width: 10vw;
+        width: 20vw;
         text-align: center;
         font-size: calc(.2em + 1vw);
     }
