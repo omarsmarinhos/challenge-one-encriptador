@@ -1,5 +1,5 @@
 body{
-    background: #F3F5FC;
+    background: #E5E5E5;
 
 }
 
@@ -21,6 +21,7 @@ header{
 }
 
 .entrada textarea{
+    background-color: #E5E5E5;
     width: 80vw;
     height: 30vh;
     border: none;
@@ -57,6 +58,7 @@ header{
 }
 
 #desencriptar{
+    background-color: transparent;
     border: 1px solid #0A3871;
     border-radius: 10px;
     height: 6.5vh;
@@ -108,6 +110,7 @@ header{
 }
 
 #copiar{
+    background-color: transparent;
     border: 1px solid #0A3871;
     border-radius: 10px;
     height: 6.5vh;
@@ -134,9 +137,6 @@ header{
 
 @media (min-width: 1023px){
 
-    header #top{
-        display: none;
-    }
     header #logo{
         display: block;
         position: relative;
@@ -153,7 +153,6 @@ header{
         height: 50vh;
         border-radius: 5%;
         color:#0A3871;
-
     }
 
     .botones{
@@ -170,6 +169,7 @@ header{
     }
 
     #desencriptar{
+        background-color: transparent;
         position: relative;
         height: 8vh;
         width: 20vw;
@@ -206,19 +206,8 @@ header{
         align-items: center;
     }
 
-    #mensaje1{
-        font-size: calc(0.1em + 1vw);
-        margin-top: 0.5vh;
-    }
-
-    #mensaje2{
-        width: 10vw;
-        text-align: center;
-        font-size: calc(.2em + 1vw);
-    
-    }
-
     #copiar{
+        background-color: #E5E5E5;
         border: 1px solid #0A3871;
         border-radius: 10px;
         height: 8vh;
@@ -227,5 +216,18 @@ header{
         margin-left: 2.5vw;
         cursor: pointer;
     }
+
+    #mensaje1{
+        font-size: calc(0.1em + 1vw);
+        margin-top: 0.5vh;
+    }
+
+    #mensaje2{
+        background-color: tr;
+        width: 10vw;
+        text-align: center;
+        font-size: calc(.2em + 1vw);
+    }
+
 }
 
