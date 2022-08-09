@@ -1,9 +1,9 @@
 body{
     background: #E5E5E5;
-
 }
 
 header{
+    margin-top: 50px;
     width: 100%;
     height: auto;
 }
@@ -95,7 +95,6 @@ header{
     border: none;
     resize: none;
     color: #495057;
-    
 }
 
 .retroalimentacion{
@@ -137,7 +136,8 @@ header{
 
 @media (min-width: 1024px){
 
-    header #logo{
+    header{
+        margin-top: 0;
         display: block;
         position: relative;
         top: 3vh;
@@ -149,10 +149,17 @@ header{
     }
 
     .entrada textarea{
+        font-size: calc(1em + 1vh);
         width: 50vw;
         height: 50vh;
         border-radius: 5%;
         color:#0A3871;
+    }
+
+    .entrada textarea::placeholder{
+        color: #0A3871;
+        font-size: calc(1em + 1vh);
+        opacity: 1;
     }
 
     .botones{
@@ -191,6 +198,7 @@ header{
     }
 
     .salida textarea{
+        font-size: calc(0.8em + 1vh);
         width: 23vw;
         height: 75%;
         margin-top: 3vh;

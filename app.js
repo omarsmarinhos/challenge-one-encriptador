@@ -5,55 +5,43 @@ const btnDesencriptar = document.getElementById('desencriptar')
 const btnCopiar = document.getElementById('copiar')
 
 btnEncriptar.addEventListener("click", () => {
-    textoSalida.value =  encriptar(textoEntrada.value)
-    mostrar()
-    
+    if(validarMayuscula(textoEntrada.value)) {
+        textoSalida.value = encriptar(textoEntrada.value)
+        mostrar()
+    } else {
+        ocultar()
+    }
 })
+
 btnDesencriptar.addEventListener("click", () => {
-    textoSalida.value = desincriptar(textoEntrada.value)
-    mostrar()
+    if(validarMayuscula(textoEntrada.value)) {
+        textoSalida.value = desincriptar(textoEntrada.value)
+        mostrar()
+    } else {
+        ocultar()
+    }
 })
+
 btnCopiar.addEventListener("click", copiar)
 
 function encriptar(texto) {
-    const arr = Array.from(texto)
-    let textoEncriptado = ""
-    arr.forEach(element => {
-        textoEncriptado += letra(element)
-    });
-    return textoEncriptado
-}
-
-function letra(caracter) {
-    if (caracter == "a") { 
-        return "ai"
-    } else if (caracter == "e") {
-        return "enter"
-    } else if (caracter == "i") {
-        return "imes"
-    } else if (caracter == "o") {
-        return "ober"
-    } else if (caracter == "u") {
-        return "ufat"
-    } else {
-        return caracter;
-    }
+    return texto.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat")
 }
 
 function desincriptar(texto) {
-    if (texto.search("ai") != -1) {
-        return desincriptar(texto.replace("ai", "a"))
-    } else if (texto.search("enter") != -1) {
-        return desincriptar(texto.replace("enter", "e"))
-    } else if (texto.search("imes") != -1) {
-        return desincriptar(texto.replace("imes", "i"))
-    } else if (texto.search("ober") != -1) {
-        return desincriptar(texto.replace("ober", "o"))
-    } else if (texto.search("ufat") != -1) {
-        return desincriptar(texto.replace("ufat", "u"))
-    }else {
-        return texto
+    return texto.replace(/ai/g, "a").replace(/enter/g, "e").replace(/imes/g, "i").replace(/ober/g, "o").replace(/ufat/g, "u")
+}
+
+function validarMayuscula(texto) {
+    const arr = texto.split(" ")
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i].charAt(j) === arr[i].charAt(j).toUpperCase()) {
+                return false;
+            }
+        } 
     }
+    return true;
 }
 
 function copiar(){
@@ -67,6 +55,18 @@ function mostrar() {
     document.querySelector('.retroalimentacion').style.display = "none";
     textoSalida.style.display = "block"
     btnCopiar.style.display = "inherit"
+}
+
+function ocultar() {
+    document.querySelector('.retroalimentacion').style.display = "flex";
+    if (screen.width >= 1024) {
+        document.querySelector('.salida > img').style.display = "block";
+    } else {
+        document.querySelector('.salida > img').style.display = "none";
+    }
+    textoSalida.style.display = "none"
+    btnCopiar.style.display = "none"
+    document.getElementById('mensaje2').innerHTML = "<strong>No se permite letras mayúsculas o caracteres especiales</strong>"
 }
 
 
