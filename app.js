@@ -2,17 +2,18 @@ let textoEntrada = document.getElementById('textoEntrada')
 let textoSalida = document.getElementById('textoSalida')
 const btnEncriptar = document.getElementById('encriptar')
 const btnDesencriptar = document.getElementById('desencriptar')
+const btnCopiar = document.getElementById('copiar')
 
 btnEncriptar.addEventListener("click", () => {
     textoSalida.value =  encriptar(textoEntrada.value)
+    mostrar()
+    
 })
 btnDesencriptar.addEventListener("click", () => {
     textoSalida.value = desincriptar(textoEntrada.value)
+    mostrar()
 })
-
-
-
-
+btnCopiar.addEventListener("click", copiar)
 
 function encriptar(texto) {
     const arr = Array.from(texto)
@@ -39,10 +40,6 @@ function letra(caracter) {
     }
 }
 
-function encriptarRecursivo(texto) {
-    
-}
-
 function desincriptar(texto) {
     if (texto.search("ai") != -1) {
         return desincriptar(texto.replace("ai", "a"))
@@ -58,6 +55,20 @@ function desincriptar(texto) {
         return texto
     }
 }
+
+function copiar(){
+    textoSalida.select();
+    navigator.clipboard.writeText(textoSalida.value);
+}
+
+function mostrar() {
+    textoEntrada.value = ""
+    document.querySelector('.salida > img').style.display = "none";
+    document.querySelector('.retroalimentacion').style.display = "none";
+    textoSalida.style.display = "block"
+    btnCopiar.style.display = "inherit"
+}
+
 
 
 

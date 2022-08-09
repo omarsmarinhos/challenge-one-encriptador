@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-    <textarea name="" id="textoEntrada" cols="30" rows="10"></textarea>
-    <button id="encriptar">Encriptar</button>
-    <button id="desencriptar">Desencriptar</button>
-    <textarea name="" id="textoSalida" cols="30" rows="10"></textarea>
+    <header>
+        <img id="logo" src="Logo.png" alt="Logo Alura">
+    </header>
+    <section class="contenedor">  
+
+        <div class="entrada">
+            <textarea id="textoEntrada" cols="30" rows="10" required placeholder="Ingrese el texto aquí"></textarea>
+            <span id="mensaje1">Solo letras minusculas y sin acentos</span>
+            <div class="botones">
+                <button id="encriptar">Encriptar</button>
+                <button id="desencriptar">Desencriptar</button>
+            </div>
+        </div>
+
+        <div class="salida">
+            <img src="Muñeco.png">
+            <div class="retroalimentacion">
+                <span id="mensaje2">Ningun mensaje fue encontrado</span>
+                <span id="mensaje2">Ingresa el texto que deseas encriptar o desencriptar.</span>
+            </div>
+            <textarea id="textoSalida" cols="30" rows="10" disabled ></textarea>
+            <button id="copiar">Copiar</button>
+        </div>
+    </section>
 
     <script src="app.js"></script>
 </body>
