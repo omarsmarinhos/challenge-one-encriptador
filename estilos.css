@@ -102,7 +102,7 @@ header{
     display: flex;
     flex-direction: column;
     gap: 3vh;
-    margin-top: 8vh;
+    margin-top: 4vh;
     align-items: center;
 }
 
@@ -121,7 +121,6 @@ header{
     cursor: pointer;
 }
 
-
 #mensaje1{
     color: #495057;
     font-size: calc(0.5em + 1vw);
@@ -130,7 +129,7 @@ header{
 
 #mensaje2{
     color: #343A40;
-    width: 70vw;
+    width: 85vw;
     text-align: center;
     font-size: calc(1em + 1vw);
 
