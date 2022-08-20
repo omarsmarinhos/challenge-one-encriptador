@@ -5,7 +5,7 @@ const btnDesencriptar = document.getElementById('desencriptar')
 const btnCopiar = document.getElementById('copiar')
 
 btnEncriptar.addEventListener("click", () => {
-    if(validarMayuscula(textoEntrada.value)) {
+    if(validar(textoEntrada.value)) {
         textoSalida.value = encriptar(textoEntrada.value)
         mostrar()
     } else {
@@ -14,7 +14,7 @@ btnEncriptar.addEventListener("click", () => {
 })
 
 btnDesencriptar.addEventListener("click", () => {
-    if(validarMayuscula(textoEntrada.value)) {
+    if(validar(textoEntrada.value)) {
         textoSalida.value = desincriptar(textoEntrada.value)
         mostrar()
     } else {
@@ -25,23 +25,15 @@ btnDesencriptar.addEventListener("click", () => {
 btnCopiar.addEventListener("click", copiar)
 
 function encriptar(texto) {
-    return texto.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat")
+    return texto.toLowerCase().replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat")
 }
 
 function desincriptar(texto) {
-    return texto.replace(/ai/g, "a").replace(/enter/g, "e").replace(/imes/g, "i").replace(/ober/g, "o").replace(/ufat/g, "u")
+    return texto.toLowerCase().replace(/ai/g, "a").replace(/enter/g, "e").replace(/imes/g, "i").replace(/ober/g, "o").replace(/ufat/g, "u")
 }
 
-function validarMayuscula(texto) {
-    const arr = texto.split(" ")
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[i].length; j++) {
-            if (arr[i].charAt(j) === arr[i].charAt(j).toUpperCase()) {
-                return false;
-            }
-        } 
-    }
-    return true;
+function validar(texto) {
+    return texto!="" && !/[A-Z]/g.test(texto) && !/[á-ú]/g.test(texto) && texto.trim().length
 }
 
 function copiar(){
